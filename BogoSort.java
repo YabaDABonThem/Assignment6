@@ -2,14 +2,22 @@
 // CS 211
 // BogoSort Class for Assignment 6
 
+// import libraries
 import java.util.Random;
+import java.time.*;
 
 public class BogoSort {
 
 	public static void main(String[] args) {
-		int[] myArray = { 2, 8, 7, 5, 1 };
+		int[] myArray = { 2, 8, 7, 5, 1, 21, 14, 63, 17, 20 };
+
+		// track the time that it took to sort the item
+		long startTime = Instant.now().toEpochMilli();
 		bogoSort(myArray);
+		long endTime = Instant.now().toEpochMilli();
+		long timeElapsed = endTime - startTime;
 		printArray(myArray);
+		System.out.println("Execution time in milliseconds: " + timeElapsed);
 	}
 
 	// Places the elements of a into sorted order.
