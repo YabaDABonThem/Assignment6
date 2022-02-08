@@ -53,4 +53,4 @@ public class BogoSort {
 		System.out.println();
 	}
 	
-}//end of BogoSort class
+} //end of BogoSort class
