@@ -1,52 +1,56 @@
-// Header: Put your name, class,..etc here
+// Allen Bao
+// CS 211
+// BogoSort Class for Assignment 6
+
+import java.util.Random;
 
 public class BogoSort {
 
 	public static void main(String[] args) {
-		
-	
-	int[] myArray = { /****put your test numbers here ******/};
-	
-	bogoSort(myArray);
-	
-	printArray(myArray);
-	
+		int[] myArray = { 2, 8, 7 };
+		bogoSort(myArray);
+		printArray(myArray);
 	}
-
-
-
-
 
 	// Places the elements of a into sorted order.
 	public static void bogoSort(int[] a) {
-		
-	   //**********Write code here******************
-		
+		while (!isSorted(a)) {
+			shuffle(a);
+			printArray(a);
+		}
 	}
 	// Returns true if a's elements are in sorted order.
 	public static boolean isSorted(int[] a) {
-
-		//**********Write code here******************
+		// go through all the elements in the array and compares an element to the next one
+		// if the current element is greater than the next, then it means that the array isn't sorted.
+		for (int i = 0; i < a.length - 1; ++i) {
+			if (a[i + 1] < a[i]) {
+				return false;
+			}
+		}
+		return true;
 	}
 	// Shuffles an array of ints by randomly swapping each
 	// element with an element ahead of it in the array.
 	public static void shuffle(int[] a) {
-
-		//**********Write code here******************
+		Random random = new Random();
+		for(int i=0; i < a.length; i++) {
+			swap(a, i, i + random.nextInt(a.length - i));
+		}
 	}
 	// Swaps a[i] with a[j].
 	public static void swap(int[] a, int i, int j) {
-
-		//**********Write code here******************
+		// you need to create new variable to hold the former i value
+		int oldI = a[i];
+		a[i] = a[j];
+		a[j] = oldI;
 	}
 	
-	public static void printArray(int[] a)
-	{
-		for(int i=0; i < a.length; i++)
-		{
-			System.out.println(a[i]);
-			
+	public static void printArray(int[] a) {
+		for(int i=0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
 		}
+		System.out.println();
 	}
 	
 }//end of BogoSort class
