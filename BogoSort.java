@@ -7,7 +7,7 @@ import java.util.Random;
 public class BogoSort {
 
 	public static void main(String[] args) {
-		int[] myArray = { 2, 8, 7 };
+		int[] myArray = { 2, 8, 7, 5, 1 };
 		bogoSort(myArray);
 		printArray(myArray);
 	}
@@ -16,7 +16,7 @@ public class BogoSort {
 	public static void bogoSort(int[] a) {
 		while (!isSorted(a)) {
 			shuffle(a);
-			printArray(a);
+			// printArray(a);
 		}
 	}
 	// Returns true if a's elements are in sorted order.
